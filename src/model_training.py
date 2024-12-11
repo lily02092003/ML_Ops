@@ -51,7 +51,7 @@ def load_params(params_path: str) -> dict:
 def load_data(file_path: str) -> pd.DataFrame:
     """
     Load data from a CSV file.
-    
+
     :param file_path: Path to the CSV file
     :return: Loaded DataFrame
     """
@@ -73,7 +73,7 @@ def load_data(file_path: str) -> pd.DataFrame:
 def train_model(X_train: np.ndarray, y_train: np.ndarray, params: dict) -> RandomForestClassifier:
     """
     Train the RandomForest model.
-    
+
     :param X_train: Training features
     :param y_train: Training labels
     :param params: Dictionary of hyperparameters
@@ -106,7 +106,7 @@ def train_model(X_train: np.ndarray, y_train: np.ndarray, params: dict) -> Rando
 def save_model(model, file_path: str) -> None:
     """
     Save the trained model to a file.
-    
+
     :param model: Trained model object
     :param file_path: Path to save the model file
     """
@@ -127,8 +127,8 @@ def save_model(model, file_path: str) -> None:
 
 def main():
     try:
-        #params = load_params('params.yaml')['model_building']
-        params= {'n_estimators':25,'random_state':2}
+        params = load_params('params.yaml')['model_training']
+        # params= {'n_estimators':25,'random_state':2}
         train_data = load_data('./data/processed/train_tfidf.csv')
         X_train = train_data.iloc[:, :-1].values
         y_train = train_data.iloc[:, -1].values
